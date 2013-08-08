@@ -26,6 +26,7 @@ func main() {
 
 	tally.InitLogging()
 	bot := tally.NewBot()
+	bot.AddAction(`:\x01ACTION (\w*) tahoe-bot\x01`, tally.ParseAction, tally.RespondToAction)
 	bot.Connect()
 	bot.PrivateMsg("NickServ", "identify " + s.Password)
 	bot.Run()
