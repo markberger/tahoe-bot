@@ -1,10 +1,10 @@
 package main
 
 import (
-	"fmt"
-	"io/ioutil"
 	"encoding/json"
+	"fmt"
 	"github.com/markberger/tally"
+	"io/ioutil"
 )
 
 type Settings struct {
@@ -26,8 +26,8 @@ func main() {
 
 	tally.InitLogging()
 	bot := tally.NewBot()
-	bot.AddAction(`:\x01ACTION (\w*) tahoe-bot\x01`, tally.ParseAction, tally.RespondToAction)
+	bot.AddAction(`:\x01ACTION (\w*) tahoe-bot\x01`, ParseAction, RespondToAction)
 	bot.Connect()
-	bot.PrivateMsg("NickServ", "identify " + s.Password)
+	bot.PrivateMsg("NickServ", "identify "+s.Password)
 	bot.Run()
 }
